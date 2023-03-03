@@ -1,6 +1,5 @@
 import { useDispatch } from 'react-redux';
-import { deleteContact } from '../../../../redux/contacts/contacts-slice';
-
+import {fetchDeleteContact} from '../../../../redux/contacts/contacts-operations';
 import PropTypes from 'prop-types';
 import css from './contactsListItem.module.css';
 
@@ -8,8 +7,7 @@ const ContactsListItem = ({ id, name, number }) => {
   const dispatch = useDispatch();
 
   const handleDeleteContact = id => {
-    const action = deleteContact(id);
-    dispatch(action);
+    dispatch(fetchDeleteContact(id));
   };
 
   return (
