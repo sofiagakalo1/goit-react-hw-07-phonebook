@@ -14,6 +14,7 @@ const initialState = {
 const contactsSlice = createSlice({
   name: 'contacts',
   initialState,
+  reducers: {},
   extraReducers: builder => {
     builder
       .addCase(fetchAllContacts.pending, store => {
@@ -46,10 +47,7 @@ const contactsSlice = createSlice({
       .addCase(fetchDeleteContact.fulfilled, (store, { payload }) => {
         store.loading = false;
         store.error = null;
-        const index = store.items.findIndex(
-          contact => contact.id === payload.id
-        );
-        store.items.splice(index, 1);
+        store.items = store.items.filter(contact => contact.id !== payload);
       })
       .addCase(fetchDeleteContact.rejected, (store, { payload }) => {
         store.loading = false;

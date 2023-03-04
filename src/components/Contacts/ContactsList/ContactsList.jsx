@@ -16,8 +16,9 @@ const ContactsList = () => {
   const filteredContacts = getFilteredContacts(filter, contacts);
   // console.log(filteredContacts);
   // console.log(contacts);
-  
+
   const dispatch = useDispatch();
+
   useEffect(() => {
     dispatch(fetchAllContacts());
   }, [dispatch]);

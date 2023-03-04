@@ -6,7 +6,7 @@ import css from './contactsListItem.module.css';
 const ContactsListItem = ({ id, name, number }) => {
   const dispatch = useDispatch();
 
-  const handleDeleteContact = id => {
+  const handleDeleteContact = (id) => {
     dispatch(fetchDeleteContact(id));
   };
 
